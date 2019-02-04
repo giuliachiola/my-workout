@@ -31,7 +31,7 @@ $color-mercury:           #E4E4E4; // light gray
 $color-gallery:           #F0F0F0; // very light gray
 $color-wild-sand:         #F5F5F5; // almost white
 
-$color-solid-black:       #000000;
+$color-black:             #000000;
 
 /*
  * Colors.rgba (do NOT use in the styles)
@@ -67,7 +67,7 @@ $color-black-90:          rgba(0, 0, 0, 0.9);
 $color-text:              $color-night-rider;
 $color-link:              $color-hibiscus;
 $color-link-hover:        $color-hibiscus;
-$color-headings:          $color-solid-black;
+$color-headings:          $color-black;
 $color-main:              $color-hibiscus;
 $color-borders:           $color-mercury;
 $color-dark-overlay:      rgba($color-night-rider, 90%);

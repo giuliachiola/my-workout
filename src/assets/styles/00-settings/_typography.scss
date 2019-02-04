@@ -6,7 +6,7 @@
  * Typography.typeface
  */
 
-$font-family-generic: Arial, sans-serif;
+$font-family-generic: 'Lato', sans-serif;;
 $font-sans:   $font-family-generic;
 
 // body text
@@ -32,14 +32,14 @@ $line-height-l:    1.75;
 $font-family-default:   $font-sans;
 $font-size-default:     $font-size-m;
 $line-height-default:   $line-height-s;
-$text-shadow-default:   0 2px 4px $color-solid-black;
+$text-shadow-default:   0 2px 4px $color-black;
 
 /*
  * Headings
  */
 
 $arr-t-h1:  px(44), px(54);
-$arr-t-h2:  px(24), px(30);
+$arr-t-h2:  px(30), px(30);
 $arr-t-h3:  px(24), px(24);
 $arr-t-h4:  px(20), px(20);
 $arr-t-h5:  px(16), px(16);
