@@ -1,0 +1,79 @@
+// *------------------------------------*
+//    #TYPOGRAPHY
+// *------------------------------------*
+
+/*
+ * Typography.typeface
+ */
+
+$font-family-generic: Arial, sans-serif;
+$font-sans:   $font-family-generic;
+
+// body text
+$font-size-xs:  px(12);
+$font-size-s:   px(14);
+$font-size-m:   px(16);
+$font-size-l:   px(18);
+$font-size-xl:  px(20);
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold:   700;
+
+$line-height-xs:   1.1;
+$line-height-s:    1.4286;
+$line-height-m:    1.5;
+$line-height-l:    1.75;
+
+/*
+ * Typography.defaults
+ */
+
+$font-family-default:   $font-sans;
+$font-size-default:     $font-size-m;
+$line-height-default:   $line-height-s;
+$text-shadow-default:   0 2px 4px $color-solid-black;
+
+/*
+ * Headings
+ */
+
+$arr-t-h1:  px(44), px(54);
+$arr-t-h2:  px(24), px(30);
+$arr-t-h3:  px(24), px(24);
+$arr-t-h4:  px(20), px(20);
+$arr-t-h5:  px(16), px(16);
+
+%font-h1 {
+  font-size: nth($arr-t-h1, 1);
+
+  @include mq(tablet) {
+    font-size: nth($arr-t-h1, 2);
+  }
+}
+
+%font-h2 {
+  font-size: nth($arr-t-h2, 1);
+
+  @include mq(tablet) {
+    font-size: nth($arr-t-h2, 2);
+  }
+}
+
+%font-h3 {
+  font-size: nth($arr-t-h3, 1);
+  margin-bottom: px(25);
+
+  @include mq(tablet) {
+    font-size: nth($arr-t-h3, 2);
+  }
+}
+
+%font-h4 {
+  font-size: nth($arr-t-h4, 1);
+}
+
+%font-h5 {
+  font-size: nth($arr-t-h5, 1);
+  text-transform: uppercase;
+}

@@ -1,0 +1,15 @@
+/* Other overrides */
+
+.is-hidden { display: none !important; }
+.is-vhidden { visibility: hidden !important; }
+.is-transparent { opacity: 0 !important; pointer-events: none; }
+
+.u-hidden-m { @include mq($until: tablet) { display: none !important; } }
+.u-hidden-t { @include mq(tablet, tabletlandscape) { display: none !important; } }
+.u-hidden-d { @include mq(tabletlandscape, wide) { display: none !important; } }
+.u-hidden-w { @include mq(wide) { display: none !important; } }
+
+.u-hidden-s { @include mq($until: tablet) { display: none !important; } }
+.u-hidden-l { @include mq($from: tablet) { display: none !important; } }
+
+.u-listreset { @include listreset;}

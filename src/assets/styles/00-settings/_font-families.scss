@@ -1,0 +1,15 @@
+/**
+ * import fonts here. anything via url() will be resolved by webpack
+ */
+
+@font-face {
+  font-family: 'SkyText'; //400
+  src: url('#{$fontPath}/sky_reg-webfont.eot');
+  src:
+      local('?'),
+      url('#{$fontPath}/sky_reg-webfont.woff') format('woff'),
+      url('#{$fontPath}/sky_reg-webfont.ttf') format('truetype'),
+      url('#{$fontPath}/sky_reg-webfont.svg#SkyTextRegular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}

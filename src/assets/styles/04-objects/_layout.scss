@@ -1,0 +1,16 @@
+/* ==========================================================================
+    # Layout
+   ========================================================================== */
+
+// Used for largest wrapper
+%l-wrapper,
+.l-wrapper {
+  width: 100%;
+  padding-left: nth($page-lateral-margins, 1);
+  padding-right: nth($page-lateral-margins, 1);
+
+  @include mq(desktop) {
+    padding-left: nth($page-lateral-margins, 2);
+    padding-right: nth($page-lateral-margins, 2);
+  }
+}

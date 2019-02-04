@@ -1,0 +1,32 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead {
+  font-size: $font-size-s;
+}
+
+th {
+  font-weight: $font-weight-normal;
+}
+
+/*
+tbody {
+  // text-transform: uppercase;
+}
+*/
+
+tr {
+  border-bottom: 1px solid $color-borders;
+}
+
+td {
+  padding: $space-xs;
+  font-size: $font-size-s;
+
+  > p {
+    margin: 0;
+    font-size: $font-size-s;
+  }
+}

@@ -1,0 +1,21 @@
+// ====================================================================
+// DARK OVERLAY
+// ====================================================================
+
+// Default = platform modal
+// Custom overlay = predettaglio, card
+
+@mixin dark-overlay($overlay-color: $color-black-90) {
+  &:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    background-color: $overlay-color;
+  }
+}

@@ -1,0 +1,76 @@
+// *------------------------------------*
+//    #BASE
+// *------------------------------------*
+
+* {
+  font-family: inherit;
+  line-height: inherit;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  // text-align: center;
+  min-width: 320px;
+  margin: 0;
+  padding: 0;
+
+  background: #36D1DC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+img {
+  max-width: 100%;
+
+  a > & {
+    vertical-align: middle;
+  }
+}
+
+figure {
+  margin: $space-s 0;
+
+  @include mq($from: tablet) {
+    margin: $space-m 0;
+  }
+}
+
+// figcaption {}
+
+ul {
+  padding-left: $space-xxl;
+
+  li {
+    margin-bottom: $space-xs;
+  }
+}
+
+ol {
+  padding-left: $space-s;
+
+  li {
+    margin-bottom: $space-xs;
+  }
+}
+
+blockquote {
+  text-align: left;
+  line-height: $line-height-m;
+  border-left: $space-s solid $color-borders;
+  margin: 0;
+  padding-left: $space-l;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $color-borders;
+  padding: 0;
+  margin: $space-m 0;
+}

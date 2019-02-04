@@ -1,0 +1,29 @@
+// *------------------------------------*
+//    # SPACING
+// *------------------------------------*
+
+// Generic spacing
+$space-xxs: px(5);
+$space-xs:  px(10);
+$space-s:   px(15);
+$space-m:   px(20);
+$space-l:   px(25);
+$space-xl:  px(30);
+$space-xxl: px(50);
+
+// Main wrapper
+$page-width-default:         95%;
+$page-width-min:             px(288);
+$page-width-tablet:          px(576);
+$page-width-tabletlandscape: px(1000);
+$page-width-wide:            px(1200);
+
+// Generic padding
+$page-padding-mobile:          $space-xs;
+$page-padding-tablet:          $space-s;
+$page-padding-tabletlandscape: $space-m;
+$page-padding-wide:            $space-l;
+
+// layout
+$page-grid-gutter:             px(16);
+$page-lateral-margins:         px(24), px(32);

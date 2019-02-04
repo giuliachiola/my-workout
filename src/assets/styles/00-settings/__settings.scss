@@ -1,0 +1,23 @@
+// *------------------------------------*
+//    #SETTINGS
+// *------------------------------------*
+
+$imgPath: '/static';
+$fontPath: '/static/fonts';
+
+// media queries
+@import '~sass-mq/mq';
+@import 'mq-config';
+
+// required for unit conversions
+@import 'px';
+
+// variables
+@import 'colors';
+@import 'font-families';
+@import 'typography';
+@import 'spacing';
+@import 'z-index';
+
+// todo
+@import 'icons';

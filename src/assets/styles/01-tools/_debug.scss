@@ -1,0 +1,19 @@
+
+@mixin debug-borders {
+	box-shadow: 0 0 1px 1px rgba(0,255,255,0.5) inset;
+}
+
+.debug-danger,
+.debug-warning,
+.debug-ok {
+	color:white;
+	padding: $space-xs;
+	margin-bottom: $space-xs;
+	border-radius: px(6);
+}
+
+.debug-danger { background: #EA2027; }
+
+.debug-warning { background: #FFC312; }
+
+.debug-ok { background: #A3CB38; }
