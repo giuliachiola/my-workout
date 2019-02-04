@@ -223,7 +223,7 @@ export default new Vuex.Store({
               },
               {
                 title: 'Turkish get up',
-                subtitle: '1 manubrio',
+                subtitle: '1 kettlebell',
                 sets: [8,8],
                 load: 20,
                 recovery: '0s',

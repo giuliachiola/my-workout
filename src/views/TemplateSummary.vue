@@ -1,8 +1,15 @@
 <template>
   <div class="tpl-summary">
-    <h1 class="tpl-summary__title">Summary</h1>
-
     <div v-for="sheet in sheets" :key="sheet.id">
+      <ul class="tpl-summary__nav">
+        <li>
+          <h4><a :href="`sheet-${sheet.id}`">Scheda #{{ sheet.id}} | {{ sheet.name }}</a></h4>
+        </li>
+      </ul>
+    </div>
+
+
+    <div v-for="sheet in sheets" :key="sheet.id" :id="`sheet-${sheet.id}`">
       <div class="c-sheet__title">
         <h4 class="c-sheet__id">Scheda #{{ sheet.id}}</h4>
         <h2 class="c-sheet__name">{{ sheet.name }}</h2>
@@ -36,11 +43,15 @@
 </script>
 
 <style lang="scss">
-  .tpl-summary__title {
-    color: $color-white;
-    text-align: center;
+  .tpl-summary__nav {
+    @include listreset;
+
+    a {
+      color: $color-white;
+    }
   }
 
+  // sheet
   .c-sheet__id {
     margin-bottom: 0;
   }

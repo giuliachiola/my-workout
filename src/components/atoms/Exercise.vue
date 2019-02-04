@@ -13,6 +13,10 @@
           </span>
         </td>
       </tr>
+      <tr v-if="load" class="c-exercise__row">
+        <td>Load</td>
+        <td><span class="c-exercise__load">{{ load }} </span>Kg</td>
+      </tr>
       <tr class="c-exercise__row">
         <td>Recovery</td>
         <td class="c-exercise__recovery">{{ recovery }}</td>
@@ -40,6 +44,11 @@ export default {
     sets: {
       type: Array,
       default: () => [],
+    },
+
+    load: {
+      type: Number,
+      default: undefined,
     },
 
     recovery: {
@@ -90,6 +99,7 @@ export default {
     font-weight: $font-weight-bold;
   }
 
+  .c-exercise__load,
   .c-exercise__recovery {
     font-size: $font-size-l;
   }
