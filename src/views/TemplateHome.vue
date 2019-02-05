@@ -1,17 +1,17 @@
 <template>
   <div class="tpl-home">
-    <exercise />
+    <app-header />
   </div>
 </template>
 
 <script>
-  import Exercise from '@atoms/Exercise.vue'
+  import AppHeader from '@atoms/AppHeader.vue'
 
   export default {
     name: 'TemplateHome',
 
     components: {
-      Exercise,
+      AppHeader,
     },
   }
 </script>
