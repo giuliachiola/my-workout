@@ -66,8 +66,8 @@ export default {
     min-width: px(270);
     text-align: center;
     border-radius: $app-border-radius;
-    background: white;
-    box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
+    background: $color-white;
+    box-shadow: 0px 1px 35px 0px $color-black-30;
   }
 
   .c-exercise__title {

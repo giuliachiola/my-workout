@@ -38,8 +38,7 @@
     padding: $space-s;
     margin-bottom: $space-l;
     border-radius: $app-border-radius;
-    background: $color-white-30;
-    background: rgba(#2d4372, 0.4);
+    background: $color-san-juan-30;
   }
 
   .c-circuit__reps {

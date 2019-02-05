@@ -7,13 +7,8 @@
   * @see http://chir.ag/projects/name-that-color/
  */
 
-$color-azure:             #3752A0; // blue
-$color-hibiscus:          #A72879; // purple
-$color-red-violet:        #C4136C; // light purple
-$color-red-orange:        #FF2B38; // red
-$color-ecstasy:           #F77122; // orange
-$color-buttercut:         #F5A623; // orange light
-$color-gorse:             #F8E837; // yellow
+$color-san-juan:          #2d4372; // dark blue
+$color-san-juan-30:       rgba($color-san-juan, .3); // dark blue 30%
 
 /*
  * Colors.neutral (do NOT use in the styles)
@@ -65,9 +60,9 @@ $color-black-90:          rgba(0, 0, 0, 0.9);
  */
 
 $color-text:              $color-night-rider;
-$color-link:              $color-hibiscus;
-$color-link-hover:        $color-hibiscus;
+$color-link:              $color-white;
+$color-link-hover:        $color-white;
 $color-headings:          $color-black;
-$color-main:              $color-hibiscus;
+$color-main:              $color-white;
 $color-borders:           $color-mercury;
 $color-dark-overlay:      rgba($color-night-rider, 90%);
