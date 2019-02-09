@@ -14,3 +14,7 @@
     padding-right: nth($page-lateral-margins, 2);
   }
 }
+
+[class^="tpl-"] {
+  padding-top: $space-xs; // per non sovrastare l'hamburger
+}

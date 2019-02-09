@@ -50,108 +50,22 @@ $c-button-dark-h-border:         $color-white;
 
 %c-button,
 .c-button {
-  display: inline-block;
-  padding: $s-button-padding-default;
-  font-size: $t-button-font-size;
-  font-weight: $t-button-font-weight;
-  line-height: $t-button-lineheight;
+  @include button-reset;
+  display: block;
+  padding: $space-xs;
+  margin-bottom: $space-xs;
+  border-radius: $app-border-radius;
   text-align: center;
-  text-decoration: none;
-  color: $c-button-label;
-  background-color: $c-button-bg;
-  border: px(2) solid $c-button-border;
-  border-radius: $s-button-radius;
-}
-
-.c-button {
-  min-width: px(150);
-  padding: $s-button-padding;
-  text-transform: uppercase;
-  pointer-events: auto;
+  color: $color-white;
+  background: $color-san-juan-30;
 
   &:hover,
-  &:focus {
-    cursor: pointer;
-    color: $c-button-h-label;
-    background-color: $c-button-h-bg;
-    border-color: $c-button-h-border;
-  }
-
-  &:disabled,
-  &.is-disabled {
-    color: $c-button-disabled-label;
-    background-color: $c-button-disabled-bg;
-    border-color: $c-button-disabled-bg;
-
-    &:hover,
-    &:focus {
-      cursor: not-allowed;
-    }
+  &:focus,
+  &:active {
+    background: lighten($color-san-juan-30, 10);
   }
 }
 
-%c-button--outlined,
-.c-button--outlined {
-  color: $c-button-outlined-label;
-  background-color: $c-button-outlined-bg;
-  border-color: $c-button-outlined-border;
-
-  &:hover,
-  &:focus {
-    color: $c-button-outlined-h-label;
-    background-color: $c-button-outlined-h-bg;
-    border-color: $c-button-outlined-h-border;
-  }
-}
-
-%c-button--light,
-.c-button--light {
-  color: $c-button-light-label;
-  background-color: $c-button-light-bg;
-  border-color: $c-button-light-border;
-
-  &:hover,
-  &:focus {
-    color: $c-button-light-h-label;
-    background-color: $c-button-light-h-bg;
-    border-color: $c-button-light-h-border;
-  }
-}
-
-%c-button--dark,
-.c-button--dark {
-  color: $c-button-dark-label;
-  background-color: $c-button-dark-bg;
-  border-color: $c-button-dark-border;
-
-  &:hover,
-  &:focus {
-    color: $c-button-dark-h-label;
-    background-color: $c-button-dark-h-bg;
-    border-color: $c-button-dark-h-border;
-  }
-}
-
-// button with icon and span
-.c-button--icon {
-  display: inline-flex;
-  align-items: center;
-
-  // button with icon
-  > [class^='icon-'] {
-    width: $s-button-icon-width;
-    height: $s-button-icon-width;
-    margin-right: $s-button-icon-margin;
-
-    // ------ TEMP (todo icons)
-
-    rect {
-      color: transparent;
-    }
-
-    path {
-      fill: lime;
-    }
-    // ------ end TEMP
-  }
+.c-button--long {
+  width: 100%;
 }

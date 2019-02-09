@@ -26,37 +26,38 @@
 </template>
 
 <script>
-export default {
-  name: 'Exercise',
+  export default {
 
-  props: {
+    name: 'Exercise',
 
-    title: {
-      type: String,
-      default: '',
-    },
+    props: {
 
-    subtitle: {
-      type: String,
-      default: '',
-    },
+      title: {
+        type: String,
+        default: '',
+      },
 
-    sets: {
-      type: Array,
-      default: () => [],
-    },
+      subtitle: {
+        type: String,
+        default: '',
+      },
 
-    load: {
-      type: Number,
-      default: undefined,
-    },
+      sets: {
+        type: Array,
+        default: () => [],
+      },
 
-    recovery: {
-      type: String,
-      default: '',
-    },
+      load: {
+        type: Number,
+        default: undefined,
+      },
+
+      recovery: {
+        type: String,
+        default: '',
+      },
+    }
   }
-}
 </script>
 
 <style lang="scss">

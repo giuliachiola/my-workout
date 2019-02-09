@@ -5,14 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    isMenuActive: false,
+    rep: 1,
     sheets: [
       {
         id: 1,
         name: 'Palestra',
-        exercises: [
+        circuits: [
           // bastone
           {
-            list: [
+            exercises: [
               {
                 title: 'Squat',
                 subtitle: 'con bastone allineamento colonna',
@@ -30,7 +32,7 @@ export default new Vuex.Store({
           },
           // cuban press
           {
-            list: [
+            exercises: [
               {
                 title: 'Cuban press',
                 subtitle: 'tirata',
@@ -53,7 +55,7 @@ export default new Vuex.Store({
             reps: 3
           },
           {
-            list: [
+            exercises: [
               {
                 title: 'Cuban press',
                 subtitle: 'completa',
@@ -65,7 +67,7 @@ export default new Vuex.Store({
           },
           // circuito
           {
-            list: [
+            exercises: [
               {
                 title: 'Squot sumo',
                 subtitle: 'vuoto',
@@ -129,10 +131,10 @@ export default new Vuex.Store({
       {
         id: 2,
         name: 'Casa',
-        exercises: [
+        circuits: [
           // bastone
           {
-            list: [
+            exercises: [
               {
                 title: 'Squat',
                 subtitle: 'con bastone allineamento colonna',
@@ -150,7 +152,7 @@ export default new Vuex.Store({
           },
           // cuban press
           {
-            list: [
+            exercises: [
               {
                 title: 'Cuban press',
                 subtitle: 'tirata',
@@ -173,7 +175,7 @@ export default new Vuex.Store({
             reps: 3
           },
           {
-            list: [
+            exercises: [
               {
                 title: 'Cuban press',
                 subtitle: 'completa',
@@ -183,9 +185,9 @@ export default new Vuex.Store({
             ],
             reps: 2
           },
-          // circuito
+          // finale
           {
-            list: [
+            exercises: [
               {
                 title: 'Squot sumo',
                 subtitle: 'vuoto',
@@ -254,7 +256,13 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
+    toggleMenu (state) {
+      state.isMenuActive = !state.isMenuActive
+    },
 
+    updateRep (state, value) {
+      state.rep = value
+    },
   },
   actions: {
 
