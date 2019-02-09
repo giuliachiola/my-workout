@@ -1,12 +1,23 @@
 <template>
   <div class="tpl-exercise">
-    <!-- <router-link :to="{ name: 'TemplateExercise', params: { sheet: sheetId, circuit: circuitId, exercise: exerciseId } }" class="c-button c-button--long">Skip</router-link> -->
 
-    <p class="c-button c-button--long">Circuit: {{ circuitId }}</p>
-    <p class="c-button c-button--long">Reps: {{ rep }} / {{ circuit.reps }}</p>
+    <exercise v-if="skipped.length > 0" v-bind="skippedExerciseObj" :exercise-recap="true" :intro="'Skipped'" @click.native="goToSkipped"/>
+
+    <table>
+      <tr>
+        <td>Circuit: {{ circuitId }} / {{ circuits.length }}</td>
+        <td>Reps: <span class="u-big">{{ rep }}</span> / {{ circuit.reps }}</td>
+      </tr>
+    </table>
+
     <exercise v-bind="exercise"/>
 
-    <button @click="goToNext" class="c-button c-button--long">Done!</button>
+    <exercise v-bind="nextExerciseObj" :exercise-recap="true" :intro="'Next'"/>
+
+    <div class="c-button__group tpl-exercise__button-group">
+      <button @click="skipExercise" class="c-button c-button--long c-button--warning">Skip</button>
+      <button @click="goNextExercise" class="c-button c-button--long c-button--success">Done!</button>
+    </div>
 
   </div>
 </template>
@@ -27,27 +38,27 @@
 
       // Current
       exercise () {
-        return this.exercises.filter((ex, index) => index === Number(this.$route.params.exercise))
+        return this.exercises.filter((ex, index) => index === Number(this.$route.params.exercise)) || {}
       },
 
       exercises () {
-        return this.circuit.exercises
+        return this.circuit.exercises || []
       },
 
       circuit () {
-        return this.circuits.filter((c, index) => index === Number(this.$route.params.circuit))[0]
+        return this.circuits.filter((c, index) => index === Number(this.$route.params.circuit))[0] || {}
       },
 
       circuitId () {
-        return Number(this.$route.params.circuit)
+        return Number(this.$route.params.circuit) || 0
       },
 
       circuits () {
-        return this.sheet.circuits
+        return this.sheet.circuits || []
       },
 
       sheet () {
-        return this.sheets.filter(s => s.id === Number(this.$route.params.sheet))[0]
+        return this.sheets.filter(s => s.id === Number(this.$route.params.sheet))[0] || {}
       },
 
       // Next
@@ -57,29 +68,43 @@
       },
 
       nextCircuit () {
-        console.log('this.circuit.reps', this.circuit.reps)
-        console.log('this.rep', this.rep)
-
-        if (this.nextExercise === 0) { // fine circuito
-          if (this.rep < this.circuit.reps) { // se ci sono ancora ripetizioni, ripeti il circuito
+        if (this.nextExercise !== 0) { // se ci sono ancora eserizi resta sul circuito
+          return Number(this.$route.params.circuit)
+        } else {
+          if (this.rep < this.circuit.reps) { // se ci sono ancora ripetizioni, resta sul circuito
             this.updateRep(this.rep + 1)
             return  Number(this.$route.params.circuit)
-          } else { // se non ci sono ripetizioni, cambia circuito
+          } else { // se non ci sono ripetizioni e nemmeno esercizi, cambia circuito
             this.updateRep(1)
             return  Number(this.$route.params.circuit) + 1
           }
-        } else { // se ci sono ancora eserizi resta lì
-          return Number(this.$route.params.circuit)
         }
       },
 
+      // next
+      nextExerciseObj () {
+        return this.exercises.filter((ex, index) => index === Number(this.nextExercise))
+      },
+
+      // skipped
+      skippedExerciseObj () {
+        const firstSkipped = this.skipped[0]
+        const currentCircuit = this.circuits.filter((c, cindex) => cindex === firstSkipped.circuit)[0]
+        const currentEx = currentCircuit.exercises.filter((ex, exindex) => exindex === firstSkipped.exercise)
+        return currentEx
+      },
+
       ...mapState([
-        'sheets', 'rep'
+        'sheets', 'rep', 'skipped'
       ])
     },
 
     methods: {
-      goToNext () {
+      goNextExercise () {
+        if (this.$route.params.circuit + 1 >= this.circuits.length) { // finiti i circuiti
+          return this.$router.push({ name: 'TemplateHome' })
+        }
+
         return this.$router.push({ name: 'TemplateExercise', params: { sheet: this.sheet.id, circuit: this.nextCircuit, exercise: this.nextExercise } })
       },
 
@@ -89,9 +114,19 @@
 
       nextExerciseWithKey () {
         if (event.keyCode == 39) { // right arrow
-          this.$router.push({ name: 'TemplateExercise', params: { sheet: this.sheet.id, circuit: this.nextCircuit, exercise: this.nextExercise } })
+          this.goNextExercise()
         }
-      }
+      },
+
+      // Skip
+      skipExercise () {
+        this.$store.commit('addToSkipped', { sheet: Number(this.$route.params.sheet), circuit: Number(this.$route.params.circuit), exercise: Number(this.$route.params.exercise) })
+      },
+
+      goToSkipped () {
+        const firstSkipped = this.skipped[0]
+        return this.$router.push({ name: 'TemplateExercise', params: { sheet: firstSkipped.sheet, circuit: firstSkipped.circuit, exercise: firstSkipped.exercise } })
+      },
     },
 
     mounted () {
@@ -103,3 +138,16 @@
     }
   }
 </script>
+
+<style lang="scss">
+  .tpl-exercise {
+    position: relative;
+    height: calc(100vh - 44px); // 44 hamburger, 10 padding
+  }
+
+  .tpl-exercise__button-group {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+  }
+</style>

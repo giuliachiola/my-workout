@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     isMenuActive: false,
     rep: 1,
+    skipped: [],
     sheets: [
       {
         id: 1,
@@ -262,6 +263,10 @@ export default new Vuex.Store({
 
     updateRep (state, value) {
       state.rep = value
+    },
+
+    addToSkipped (state, value) {
+      state.skipped.push(value)
     },
   },
   actions: {

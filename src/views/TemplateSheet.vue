@@ -3,7 +3,7 @@
     <h1 class="tpl-sheet__title">Scheda #{{ sheet.id}} |<br>{{ sheet.name }}</h1>
 
     <ul class="c-sheet__circuit">
-      <li v-for="(circuit, index) in sheet.exercises" :key="index">
+      <li v-for="(circuit, index) in sheet.circuits" :key="index">
         <circuit v-bind="circuit"/>
       </li>
     </ul>

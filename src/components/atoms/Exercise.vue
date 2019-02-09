@@ -1,13 +1,15 @@
 <template>
-  <div class="c-exercise">
+  <div :class="exerciseRecap ? 'c-exercise--recap' : ''" class="c-exercise">
+    <p v-if="exerciseRecap" class="c-excercise__intro">{{ intro }}</p>
+
     <h2 class="c-exercise__title">{{ title }}</h2>
     <h3 class="c-exercise__subtitle">{{ subtitle }}</h3>
 
-    <table>
+    <table class="c-exercise__table" v-if="!exerciseRecap">
       <tr class="c-exercise__row">
         <td>Sets</td>
         <td>
-          <span v-for="(set, index) in sets" class="c-exercise__set" :key="set">
+          <span v-for="(set, index) in sets" class="c-exercise__set" :key="index">
             {{ set }}
             <span v-if="index !== sets.length -1">+</span>
           </span>
@@ -31,6 +33,16 @@
     name: 'Exercise',
 
     props: {
+
+      exerciseRecap: {
+        type: Boolean,
+        default: false,
+      },
+
+      intro: {
+        type: String,
+        default: '',
+      },
 
       title: {
         type: String,
@@ -69,16 +81,46 @@
     border-radius: $app-border-radius;
     background: $color-white;
     box-shadow: 0px 1px 35px 0px $color-black-30;
+
+    &.c-exercise--recap {
+      background: transparent;
+    }
+  }
+
+  .c-excercise__intro {
+    .c-exercise--recap & {
+      margin: 0;
+    }
   }
 
   .c-exercise__title {
     margin: 0;
     font-weight: $font-weight-bold;
+
+    .c-exercise--recap & {
+      font-size: $font-size-m;
+    }
   }
 
   .c-exercise__subtitle {
-    margin-top: 0;
-    margin-bottom: $space-m;
+    margin: 0;
+
+    .c-exercise--recap & {
+      font-size: $font-size-m;
+    }
+  }
+
+  .c-excercise__intro,
+  .c-exercise__title,
+  .c-exercise__subtitle {
+    .c-exercise--recap & {
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+
+  .c-exercise__table {
+    margin-top: $space-m;
   }
 
   .c-exercise__row {

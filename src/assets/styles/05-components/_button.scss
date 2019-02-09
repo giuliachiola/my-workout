@@ -52,7 +52,7 @@ $c-button-dark-h-border:         $color-white;
 .c-button {
   @include button-reset;
   display: block;
-  padding: $space-xs;
+  padding: $space-s;
   margin-bottom: $space-xs;
   border-radius: $app-border-radius;
   text-align: center;
@@ -68,4 +68,29 @@ $c-button-dark-h-border:         $color-white;
 
 .c-button--long {
   width: 100%;
+}
+
+.c-button--success {
+  background: $color-torquoise-blue;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: lighten($color-torquoise-blue, 10);
+  }
+}
+
+.c-button--warning {
+  background: $color-san-juan-30;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: lighten($color-san-juan-30, 10);
+  }
+}
+
+// button groups
+.c-button__group {
+  display: flex;
 }

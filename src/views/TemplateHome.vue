@@ -6,9 +6,8 @@
         <input :id="sheet.id" :value="sheet.id" v-model="selectedSheet" name="sheetGroup" type="radio">
         <label :for="sheet.id" :class="selectedSheet === sheet.id ? 'is-active' : ''" class="c-select__label c-button">{{ sheet.name }}</label>
       </div>
-      <span>selectedSheet: {{ selectedSheet }}</span>
 
-      <button class="c-button c-button--long" @click="start">START</button>
+      <button class="c-button c-button--long c-button--success" @click="start">START</button>
     </div>
   </div>
 </template>

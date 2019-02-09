@@ -1,6 +1,6 @@
 <template>
   <div class="c-circuit">
-    <exercise v-for="(exercise, index) in list" v-bind="exercise" :key="index"/>
+    <exercise v-for="(exercise, index) in exercises" v-bind="exercise" :key="index"/>
     <p class="c-circuit__reps">{{ reps }}x</p>
   </div>
 </template>
@@ -17,7 +17,7 @@
 
     props: {
 
-      list: {
+      exercises: {
         type: Array,
         default: () => [],
       },

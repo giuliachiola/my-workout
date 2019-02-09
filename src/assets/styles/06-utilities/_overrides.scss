@@ -13,3 +13,5 @@
 .u-hidden-l { @include mq($from: tablet) { display: none !important; } }
 
 .u-listreset { @include listreset;}
+
+.u-big { font-size: 150%; font-weight: bold; }
