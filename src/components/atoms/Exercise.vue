@@ -1,11 +1,10 @@
 <template>
-  <div :class="exerciseRecap ? 'c-exercise--recap' : ''" class="c-exercise">
-    <p v-if="exerciseRecap" class="c-excercise__intro">{{ intro }}</p>
+  <div class="c-exercise">
 
     <h2 class="c-exercise__title">{{ title }}</h2>
     <h3 class="c-exercise__subtitle">{{ subtitle }}</h3>
 
-    <table class="c-exercise__table" v-if="!exerciseRecap">
+    <table class="c-exercise__table">
       <tr class="c-exercise__row">
         <td>Sets</td>
         <td>
@@ -33,11 +32,6 @@
     name: 'Exercise',
 
     props: {
-
-      exerciseRecap: {
-        type: Boolean,
-        default: false,
-      },
 
       intro: {
         type: String,

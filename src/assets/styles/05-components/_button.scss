@@ -80,16 +80,6 @@ $c-button-dark-h-border:         $color-white;
   }
 }
 
-.c-button--warning {
-  background: $color-san-juan-30;
-
-  &:hover,
-  &:focus,
-  &:active {
-    background: lighten($color-san-juan-30, 10);
-  }
-}
-
 // button groups
 .c-button__group {
   display: flex;

@@ -1,7 +1,7 @@
 <template>
   <div class="tpl-exercise">
 
-    <exercise v-if="skipped.length > 0" v-bind="skippedExerciseObj" :exercise-recap="true" :intro="'Skipped'" @click.native="goToSkipped"/>
+    <recap v-if="skipped.length > 0" v-bind="skipped" :intro="'Skipped'"/>
 
     <table>
       <tr>
@@ -12,10 +12,10 @@
 
     <exercise v-bind="exercise"/>
 
-    <exercise v-bind="nextExerciseObj" :exercise-recap="true" :intro="'Next'"/>
+    <recap v-if="nextExerciseObj.length > 0" v-bind="nextExerciseObj" :intro="'Next'"/>
 
     <div class="c-button__group tpl-exercise__button-group">
-      <button @click="skipExercise" class="c-button c-button--long c-button--warning">Skip</button>
+      <button @click="skipExercise" class="c-button c-button--long">Skip</button>
       <button @click="goNextExercise" class="c-button c-button--long c-button--success">Done!</button>
     </div>
 
@@ -26,12 +26,14 @@
   import { mapState } from 'vuex'
 
   import Exercise from '@atoms/Exercise.vue'
+  import Recap from '@atoms/Recap.vue'
 
   export default {
     name: 'TemplateExercise',
 
     components: {
       Exercise,
+      Recap,
     },
 
     computed: {
@@ -83,15 +85,7 @@
 
       // next
       nextExerciseObj () {
-        return this.exercises.filter((ex, index) => index === Number(this.nextExercise))
-      },
-
-      // skipped
-      skippedExerciseObj () {
-        const firstSkipped = this.skipped[0]
-        const currentCircuit = this.circuits.filter((c, cindex) => cindex === firstSkipped.circuit)[0]
-        const currentEx = currentCircuit.exercises.filter((ex, exindex) => exindex === firstSkipped.exercise)
-        return currentEx
+        return [this.exercises.filter((ex, index) => index === Number(this.nextExercise))]
       },
 
       ...mapState([
@@ -121,11 +115,6 @@
       // Skip
       skipExercise () {
         this.$store.commit('addToSkipped', { sheet: Number(this.$route.params.sheet), circuit: Number(this.$route.params.circuit), exercise: Number(this.$route.params.exercise) })
-      },
-
-      goToSkipped () {
-        const firstSkipped = this.skipped[0]
-        return this.$router.push({ name: 'TemplateExercise', params: { sheet: firstSkipped.sheet, circuit: firstSkipped.circuit, exercise: firstSkipped.exercise } })
       },
     },
 
