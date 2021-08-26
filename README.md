@@ -1,21 +1,46 @@
-# myworkout
+# My workout
 
-## Project setup
-```
-npm install
+I workout at the gym and this project helps me by telling me the exercises I need to do.
+
+| \                | \        |
+|------------------|----------|
+| Deploy status    | \        |
+| Deploy preview   | \        |
+| Project typology | Personal |
+
+
+![project preview 1](docs/project-preview-1.png)
+![project preview 2](docs/project-preview-2.png)
+
+## 🔥 Tech stack
+
+| Purpose       | Technology   |
+|:--------------|:-------------|
+| Templating    | Vue          |
+| Styling       | SCSS + BEMIT |
+| Documentation | Markdown     |
+
+## 🌊 Run development mode
+
+```shell
+# install dependencies
+npm i
+
+# serve with hot reload at localhost:8080
+npm run dev
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 🧳 Build setup
 
-### Compiles and minifies for production
-```
+```shell
+# build for production
 npm run build
 ```
 
+## 🎩 Fix automagically
+
 ### Run your tests
+
 ```
 npm run test
 ```
@@ -25,5 +50,9 @@ npm run test
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 🌿 Branches
+
+| Branch name | Use          |
+|:------------|:-------------|
+| `main`      | production   |
+| `develop`   | main feature |
