@@ -1,6 +1,6 @@
 # My workout
 
-I workout at the gym and this project helps me by telling me the exercises I need to do.
+I workout at the gym and this project helps me by telling which exercises I need to do next.
 
 | \                | \        |
 |------------------|----------|
